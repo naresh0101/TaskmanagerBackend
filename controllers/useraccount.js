@@ -1,4 +1,5 @@
 const Models = require("../models");
+const UserService = require('../services/user');
 const Joi = require("@hapi/joi");
 
 
@@ -27,9 +28,20 @@ class UserAccountController {
           resBody.message = err.message.replace(/\"/g, "");
           return res.status(200).json(resBody);
         }
+        let user = await Models.User.findByEmail(reqBody.email);
+        if (user) {
+          resBody.message = "Account with email address already exist!!";
+          return res.status(200).json(resBody);
+        }
+        user = await UserService.CreateUser(reqBody);
+        resBody.success = true;
+        console.log("hi");
+        
+        resBody.message = "Account Created Successfully";
+        res.status(200).json(resBody);
+        
     }
 
 }
 
 module.exports = new UserAccountController()
-

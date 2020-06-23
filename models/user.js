@@ -5,7 +5,7 @@ const validator = require("validator");
 const uuidApiKey = require("uuid-apikey");
 
 const TYPE_ADMIN = "admin",
-  TYPE_SDE = "ade",
+  TYPE_SDE = "SDE",
   TYPE_NORMAL = "normal";
 const STATUS_ACTIVE = "active",
   STATUS_PENDING = "pending",
