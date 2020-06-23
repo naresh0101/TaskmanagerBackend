@@ -1,0 +1,23 @@
+{
+  "name": "taskmanagerbackend",
+  "version": "1.0.0",
+  "description": "backend to manage tasks for users ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naresh0101/TaskmanagerBackend.git"
+  },
+  "author": "Naresh Kumar Gautam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naresh0101/TaskmanagerBackend/issues"
+  },
+  "homepage": "https://github.com/naresh0101/TaskmanagerBackend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
