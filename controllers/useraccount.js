@@ -1,6 +1,6 @@
-const Models = require("../models");
-const UserService = require('../services/user');
-const Joi = require("@hapi/joi");
+const Models = require("../models"),
+  UserService = require('../services/user'),
+  Joi = require("@hapi/joi");
 
 
 class UserAccountController {
@@ -35,8 +35,6 @@ class UserAccountController {
     }
     user = await UserService.CreateUser(reqBody);
     resBody.success = true;
-    console.log("hi");
-
     resBody.message = "Account Created Successfully";
     res.status(200).json(resBody);
   }

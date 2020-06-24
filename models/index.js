@@ -1,5 +1,7 @@
 const UserModel = require("./user");
+const TaskModel = require("./tasks")
 
 module.exports = {
-  User: UserModel
+  User: UserModel,
+  Task: TaskModel
 };

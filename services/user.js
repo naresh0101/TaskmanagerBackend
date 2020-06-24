@@ -17,6 +17,7 @@ let createUser = async function (data) {
   return user;
 };
 
+
 let deleteUser = async function (user) {
   let success = true;
   try {
