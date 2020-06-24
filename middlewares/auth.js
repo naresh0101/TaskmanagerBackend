@@ -19,7 +19,6 @@ var apiKeyAuthVerify = async function (req, res, next) {
       res.user = user;
       await next(); // Calling the next middleware
     } catch (err) {
-      console.log(err);
       resBody.message = "Internal Server Error, Please try again";
       res.body = resBody;
     }
