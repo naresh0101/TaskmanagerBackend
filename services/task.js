@@ -21,7 +21,7 @@ let findTaskbyAdmin = async function () {
   return tasks;
 };
 
-let findTask = async function (data) {
+let findtask = async function (data) {
   let tasks = null;  
   try {
     tasks = await TaskModel.find({assignto: data.email}); 
@@ -35,5 +35,5 @@ let findTask = async function (data) {
 module.exports = {
   CreateTask: createTask,
   findTaskbyAdmin: findTaskbyAdmin,
-  findtask: findTask,
+  findTask: findtask,
 };

@@ -7,8 +7,8 @@ const db = require("./loders/mongodb")
 
 // Creating express application object
 let app = express()
-app.use(cors()) // CORS
 app.use(express.json()) // parse application/json
+app.use(cors()) // CORS
 app.use(express.urlencoded({extended: false})) // parse application/x-www-form-urlencoded
 app.use(express.static("public"));
 
@@ -33,7 +33,6 @@ app.use((err, req, res, next) => {
         success: false,
         message: 'Internal server error'
     }
-    console.log(err)
     res.status(500).json(resBody)
 })
 

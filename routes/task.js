@@ -10,6 +10,7 @@ let task = require("../controllers/task");
 router.get("/", (req, res, next) => res.status(200).json({ success: true }));
 
 router.post("/assign-task",auth.apiKeyAuth,task.assignTask);
+
 router.get("/gettasks", auth.apiKeyAuth, task.fetchtask);
 
 

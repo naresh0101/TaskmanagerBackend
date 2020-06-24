@@ -61,7 +61,8 @@ class TaskController {
           break;
         default:
           try {
-            const tasks = await taskService.findtask(res.user);
+            console.log(res.user);
+            const tasks = await taskService.findTask(res.user);
             resBody.success = true;
             resBody.data = tasks;
             res.status(200).json(resBody);

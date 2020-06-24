@@ -17,6 +17,22 @@ let createUser = async function (data) {
   return user;
 };
 
+let findAllusers = async function () {
+  let users = null;
+  try {
+    users = await UserModel.find({}).select({
+      password: 0,
+      api_key: 0,
+      __v: 0,
+      updatedAt: 0,
+      createdAt:0,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+  return users;
+};
+
 
 let deleteUser = async function (user) {
   let success = true;
@@ -30,5 +46,7 @@ let deleteUser = async function (user) {
 
 module.exports = {
   CreateUser: createUser,
+  findAllusers:findAllusers,
   DeleteUser: deleteUser,
+
 };
