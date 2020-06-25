@@ -8,7 +8,7 @@ class UserAccountController {
 
       async createUser(req, res, next) {
         let reqBody = req.body,
-          resBody = { success: false };
+          resBody = { success: false };    
         // Input body validation
         let inputSchema = Joi.object({
           name: Joi.string().min(3).max(100).required(),

@@ -8,24 +8,24 @@ class TaskController {
 
     async assignTask(req, res, next) {
       let reqBody = req.body,
-        resBody = { success: false };
-      // Input body validation
+        resBody = { success: false }; 
+        reqBody.like = false
+        // Input body validation
       let inputSchema = Joi.object({
-        title: Joi.string().min(5).max(100).required(),
+        tasktitle: Joi.string().min(5).max(100).required(),
         assignby: Joi.string().required(),
         assignto: Joi.string().required(),
         describe: Joi.string().min(5).required(),
         project: Joi.string(),
         status: Joi.string()
-          .required()
           .valid(Models.Task.TASK_DONE, Models.Task.TASK_PENDING),
         like: Joi.string()
           .required()
           .valid(Models.Task.TASK_LIKE, Models.Task.TASK_DISLIKE),
       });
       const newtask = {
-        title: reqBody.title,
-        assignby: reqBody.assignby,
+        tasktitle: reqBody.tasktitle,
+        assignby: res.user.email,
         describe: reqBody.describe,
         project: reqBody.project,
         status: reqBody.status,
@@ -33,7 +33,7 @@ class TaskController {
         assignto : reqBody.assignto
       };
       try {
-        await inputSchema.validateAsync(newtask);
+        await inputSchema.validateAsync(newtask);        
       } catch (err) {
         resBody.message = err.message.replace(/\"/g, "");
         return res.status(200).json(resBody);

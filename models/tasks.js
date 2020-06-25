@@ -10,7 +10,7 @@ TASK_DISLIKE = false;
 
 const taskSchema = new mongoose.Schema(
   {
-    title: {
+    tasktitle: {
       type: String,
       trim: true,
       minlength: 5,
@@ -36,12 +36,12 @@ const taskSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      required: true,
+      default: TASK_PENDING ,
       enum: [TASK_DONE, TASK_PENDING],
     },
     like: {
       type: String,
-      required: true,
+      required: TASK_DISLIKE,
       enum: [TASK_LIKE, TASK_DISLIKE],
     },
   },
