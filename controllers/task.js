@@ -71,8 +71,15 @@ class TaskController {
           }
           break;
       }
-      
     }
+  async deleteById(req, res, next) {
+    let resBody = { success: false },
+      reqBody = req.body   
+    resBody.success = true;
+    resBody.data = tasks;
+    res.status(200).json(resBody);
+      
+  }
 }
 
 module.exports = new TaskController();
