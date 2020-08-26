@@ -1,25 +1,20 @@
 let mongoose = require("mongoose");
 let util = require("util");
-const config = require('../config')
+const config = (require('../config.json')[process.env.NODE_ENV]).mongodb
 
 class Mongodb {
   constructor() {
-    this.uri = util.format(
-      "mongodb://%s:%s/%s",
-      config.mongodb.host,
-      config.mongodb.port,
-      config.mongodb.db,
-    );
-    this.init();
-  }
-
+    this.uri = util.format('mongodb://%s:%s@%s:%s/%s?authSource=%s',
+        config.user, config.pass, config.host, config.port, config.db, config.auth_source);
+    this.init()
+}
   init() {
     const options = {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      reconnectInterval: 500, // Reconnect every 500ms
-      poolSize: 5, // Maintain up to 5 socket connections
-      connectTimeoutMS: 10000, // Give up initial connection after 10 seconds
+      reconnectInterval: 500,
+      poolSize: 5, 
+      connectTimeoutMS: 10000, 
       socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
       family: 4, // Use IPv4, skip trying IPv6
     };

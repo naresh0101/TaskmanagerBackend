@@ -1,9 +1,12 @@
 // Module's Import
-const express = require("express");
 const cors = require("cors");
-const config = require("./config")
-const fs = require("fs");
+const config = require("./config")[process.env.NODE_ENV]
 const db = require("./loders/mongodb")
+const dotenv = require('dotenv');
+const express = require("express");
+const fs = require("fs");
+// const Configs = process.env.DB_NAME
+// console.log(Configs);
 
 // Creating express application object
 let app = express()
@@ -36,7 +39,7 @@ app.use((err, req, res, next) => {
     res.status(500).json(resBody)
 })
 
-const PORT = config.server.port;
+const PORT = config.port;
 app.listen(PORT, () => {
   console.log(`       Server running on port ${PORT}`);
 });
