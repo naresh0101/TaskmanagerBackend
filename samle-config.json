@@ -2,12 +2,12 @@
     "development": {
         "port": 4004,
         "mongodb": {
-            "db": "",
-            "user": "",
-            "pass": "",
-            "host": "",
-            "port": "",
-            "auth_source": ""
+            "db": "replace with your db name",
+            "user": "replace with your db user ",
+            "pass": "replace with your db password",
+            "host": "replace with your db host like localhost or any api or domain name",
+            "port": "replace with your db port number by default it is 27017 so you can add 27017",
+            "auth_source": "add your admin auth source default is admin"
         }
     },
     "staging": {

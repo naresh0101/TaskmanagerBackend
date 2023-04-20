@@ -43,3 +43,27 @@ const PORT = config.port;
 app.listen(PORT, () => {
   console.log(`       Server running on port ${PORT}`);
 });
+
+
+// ======================== worked 
+// db.createUser(
+//        {
+//          user: "mongoadmin",
+//          pwd: "mongoadmin",
+//          roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+//        }
+//      )
+
+
+// ====================== worked
+// db.createUser(
+//     {
+//         user:"taskManageUser", 
+//         pwd : "TaskManageDemo",
+//         roles: [
+//             {
+//                 db: "taskManageDB", // db name 
+//                 role : "dbOwner" // owner of the db 
+//             }
+//         ]
+//     })
